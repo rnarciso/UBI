@@ -1,0 +1,9 @@
+model_type: placeholder # Ou 'gravity', 'diff_income', etc.
+baseline_net_migration_share_of_pop: 0.0015 # Taxa base anual
+ubi_attraction_factor: 0.1 # Aumento % na migração por 1000€ de RBU (Exemplo!)
+residency_requirement_years: 5 # Carência UBI para imigrantes
+gravity_model_params: # Se usasse modelo gravitacional
+  income_elasticity: 0.8
+  distance_elasticity: -1.0
+  policy_factor: 0.5
+# ... outros parâmetros ...

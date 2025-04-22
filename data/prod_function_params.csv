@@ -1,0 +1,5 @@
+Parameter,Value
+cobb_douglas_alpha,0.35
+tfp_calibration_factor,1.0
+capital_depreciation_rate,0.05
+education_lag_years,15
