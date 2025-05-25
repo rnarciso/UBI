@@ -1,0 +1,5 @@
+year,nairu
+2024,0.045
+2025,0.0445 # Exemplo: pequena variação
+2026,0.044
+# ... (linhas para todos os anos da simulação) ...

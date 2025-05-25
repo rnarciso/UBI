@@ -1,0 +1,71 @@
+# Scenario: Germany with a Higher UBI Amount
+scenario_name: "Germany - High UBI v1.0"
+country: germany
+simulation_years:
+  start: 2024
+  end: 2075
+data_paths: # These typically remain default unless scenario specifies different data sources
+  initial_population: "population_cohorts_2023.csv"
+  initial_economy: "economy_2023.csv"
+  initial_social: "social_2023.csv"
+  mortality_rates: "mortality_rates_proj.csv"
+  fertility_rates: "fertility_rates_proj.csv"
+  migration_params: "migration_params.yaml"
+  prod_function_calibration: "prod_function_params.csv"
+  nairu_estimate: "nairu.csv"
+demographics:
+  cohort_step: 5
+  max_age: 90
+  fertility_age_start: 15
+  fertility_age_end: 49
+  working_age_start: 20
+  working_age_end: 64
+  retirement_age: 65
+  placeholder_mortality_rate_annual: 0.01
+  placeholder_fertility_rate_per_woman: 1.5
+  placeholder_birth_sex_ratio: 1.05
+  placeholder_net_migration_share_of_pop: 0.0015
+ubi:
+  annual_amount_eur_real_start: 20000 # MODIFIED: Higher UBI
+  start_year: 2028
+  min_eligible_age: 18
+  residency_requirement_years: 5
+  indexation_lag: 1
+  fertility_rate_boost_factor: 0.02 # Default, could be scenario specific
+labor_market:
+  placeholder_participation_rate_working_age: 0.82
+  placeholder_participation_rate_old: 0.08
+  placeholder_avg_hours: 1580
+  ubi_participation_reduction_factor: # MODIFIED: Slightly higher reduction due to higher UBI
+    working_age: 0.07
+    old_age: 0.12
+  ubi_hours_reduction_factor: 0.015 # MODIFIED: Slightly higher reduction
+  baseline_unemployment_rate: 0.055
+  nairu: 0.045 # This would typically be loaded from nairu.csv for the country
+economy:
+  cobb_douglas_alpha: 0.35
+  tfp_calibration_factor: 1.0
+  baseline_tfp_growth_rate: 0.008
+  ubi_tfp_growth_boost_pp: 0.0015 # MODIFIED: Higher potential boost
+  education_lag_years: 15
+  capital_depreciation_rate: 0.05
+  investment_rate_gdp: 0.20
+  baseline_inflation_rate: 0.02
+  inflation_output_gap_sensitivity: 0.5
+  inflation_ubi_demand_sensitivity: 0.35 # MODIFIED: Slightly higher sensitivity
+  inflation_ceiling": 0.10
+social_indicators:
+  initial_gini: 0.29 # This would come from data/country/social_2023.csv
+  initial_poverty_rate: 0.15 # This would come from data/country/social_2023.csv
+  ubi_gini_reduction_factor: 0.18 # MODIFIED: Higher impact due to higher UBI
+  ubi_poverty_reduction_factor: 0.85 # MODIFIED: Higher impact
+  poverty_floor": 0.025
+government_finance:
+  initial_debt_gdp_ratio: 0.60 # This would come from data/country/economy_2023.csv (if available, or set globally)
+  other_gov_spending_share_gdp: 0.25
+  baseline_tax_revenue_share_gdp: 0.40
+  ubi_financing_tax_share: 0.75 # MODIFIED: Higher tax share for higher UBI
+  fiscal_multiplier_transfer: 0.8
+  fiscal_multiplier_other_gov: 1.2
+  consumption_propensity_ubi_recipients: 0.85 # MODIFIED: Slightly higher
+  consumption_reduction_high_income_financing: 0.25 # MODIFIED: Slightly higher

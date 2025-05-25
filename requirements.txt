@@ -4,4 +4,4 @@ numpy
 scipy
 PyYAML
 watchdog
-matplotlib
+matplotlibPyYAML==6.0.1

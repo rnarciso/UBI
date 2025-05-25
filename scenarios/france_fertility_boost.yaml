@@ -1,0 +1,71 @@
+# Scenario: France with a Higher Fertility Boost from UBI
+scenario_name: "France - High Fertility Boost v1.0"
+country: france
+simulation_years:
+  start: 2024
+  end: 2075
+data_paths:
+  initial_population: "population_cohorts_2023.csv"
+  initial_economy: "economy_2023.csv"
+  initial_social: "social_2023.csv"
+  mortality_rates: "mortality_rates_proj.csv"
+  fertility_rates: "fertility_rates_proj.csv"
+  migration_params: "migration_params.yaml"
+  prod_function_calibration: "prod_function_params.csv"
+  nairu_estimate: "nairu.csv"
+demographics:
+  cohort_step: 5
+  max_age: 90
+  fertility_age_start: 15
+  fertility_age_end: 49
+  working_age_start: 20
+  working_age_end: 64
+  retirement_age: 65
+  placeholder_mortality_rate_annual: 0.01
+  placeholder_fertility_rate_per_woman: 1.3 # Adjusted for France's baseline
+  placeholder_birth_sex_ratio: 1.05
+  placeholder_net_migration_share_of_pop: 0.0010 # Adjusted
+ubi:
+  annual_amount_eur_real_start: 12000 # Standard UBI for this scenario
+  start_year: 2029 
+  min_eligible_age: 18
+  residency_requirement_years: 5
+  indexation_lag: 1
+  fertility_rate_boost_factor: 0.05 # MODIFIED: Higher fertility boost
+labor_market:
+  placeholder_participation_rate_working_age: 0.80 # Adjusted
+  placeholder_participation_rate_old: 0.07 # Adjusted
+  placeholder_avg_hours: 1550 # Adjusted
+  ubi_participation_reduction_factor:
+    working_age: 0.05
+    old_age: 0.10
+  ubi_hours_reduction_factor: 0.01
+  baseline_unemployment_rate: 0.060 # Adjusted
+  nairu: 0.050 # This would typically be loaded from nairu.csv for France
+economy:
+  cobb_douglas_alpha: 0.33 # Adjusted
+  tfp_calibration_factor: 0.95 # Adjusted
+  baseline_tfp_growth_rate: 0.007 # Adjusted
+  ubi_tfp_growth_boost_pp": 0.001
+  education_lag_years: 15
+  capital_depreciation_rate: 0.05
+  investment_rate_gdp: 0.22 # Adjusted
+  baseline_inflation_rate": 0.02
+  inflation_output_gap_sensitivity: 0.5
+  inflation_ubi_demand_sensitivity: 0.3
+  inflation_ceiling: 0.10
+social_indicators:
+  initial_gini: 0.30 # This would come from data/france/social_2023.csv
+  initial_poverty_rate: 0.16 # This would come from data/france/social_2023.csv
+  ubi_gini_reduction_factor: 0.15
+  ubi_poverty_reduction_factor: 0.80
+  poverty_floor: 0.03
+government_finance:
+  initial_debt_gdp_ratio: 0.70 # This would come from data/france/economy_2023.csv
+  other_gov_spending_share_gdp: 0.28 # Adjusted
+  baseline_tax_revenue_share_gdp: 0.42 # Adjusted
+  ubi_financing_tax_share: 0.7
+  fiscal_multiplier_transfer: 0.8
+  fiscal_multiplier_other_gov: 1.2
+  consumption_propensity_ubi_recipients: 0.8
+  consumption_reduction_high_income_financing: 0.2
